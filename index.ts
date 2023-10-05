@@ -6,18 +6,24 @@ let randomNumber: number = 7;
 interface AnswersType {
   myGuessNumber: number;
 }
-const answers: AnswersType = await inquirer.prompt([
-  {
-    type: "number",
-    name: "myGuessNumber",
-    message: "Enter a number between 1 to 10",
-  },
-]);
+let numTries: number = 3;
+while (numTries > 0) {
+  const answers: AnswersType = await inquirer.prompt([
+    {
+      type: "number",
+      name: "myGuessNumber",
+      message: "Enter a number between 1 to 10",
+    },
+  ]);
 
-console.log(answers);
+  console.log(answers);
 
-if (answers.myGuessNumber === randomNumber) {
-  console.log(chalk.yellow("You guessed it right"));
-} else {
-  console.log(chalk.red("You guessed it wrong"));
+  if (answers.myGuessNumber === randomNumber) {
+    console.log(chalk.yellow("You guessed it right"));
+  } else {
+    console.log(chalk.red("You guessed it wrong"));
+  }
+  console.log(`you have ${numTries} left`);
+
+  numTries--;
 }
