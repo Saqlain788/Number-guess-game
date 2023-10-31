@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import chalk from "chalk";
 import inquirer from "inquirer";
 console.log(chalk.blue("Game: Lets guess a number between 1 to 10 in 3 tries"));
